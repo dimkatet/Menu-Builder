@@ -1,0 +1,66 @@
+﻿<Page
+    x:Class="Menu_Builder.ListPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:Menu_Builder"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Loaded="ListPage_Loaded"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid
+            Margin="0,125,0,538"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch">
+            <ComboBox
+                Name="categoryBox"
+                Width="200"
+                Height="30"
+                Margin="100,10,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                SelectedIndex="0">
+                <ComboBoxItem Content="Первое блюдо" />
+                <ComboBoxItem Content="Второе блюдо" />
+                <ComboBoxItem Content="Закуска" />
+                <ComboBoxItem Content="Десерт" />
+            </ComboBox>
+            <ComboBox
+                Name="productsBox"
+                Width="200"
+                Height="30"
+                Margin="330,10,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top" />
+            <AppBarButton
+                Height="30"
+                Margin="560,10,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Icon="Find"
+                Tapped="AppBarButton_Tapped" />
+        </Grid>
+        <ListView
+            Name="dishesList"
+            Margin="30,182,28,0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="600" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{Binding Title}" />
+                        <TextBlock Grid.Column="1" Text="{Binding Category}" />
+                        <TextBlock Grid.Column="2" Text="{Binding Products}" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

@@ -1,0 +1,128 @@
+﻿<Page
+    x:Class="Menu_Builder.BuildingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:Menu_Builder"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Loaded="BuildingPage_Loaded"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock
+            Margin="476,0,496,667"
+            FontSize="36"
+            Text="Создание меню" />
+        <StackPanel Margin="50,195,920,195" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <Button
+                Width="250"
+                Height="70"
+                Margin="0,10,0,0"
+                Click="Button_Click"
+                Content="Первое блюдо"
+                FontSize="25" />
+            <Button
+                Width="250"
+                Height="70"
+                Margin="0,10,0,0"
+                Click="Button_Click_1"
+                Content="Второе блюдо"
+                FontSize="25" />
+            <Button
+                Width="250"
+                Height="70"
+                Margin="0,10,0,0"
+                Click="Button_Click_2"
+                Content="Закуска"
+                FontSize="25" />
+            <Button
+                Width="250"
+                Height="70"
+                Margin="0,10,0,0"
+                Click="Button_Click_3"
+                Content="Десерт"
+                FontSize="25" />
+        </StackPanel>
+        <Grid
+            Width="250"
+            Height="40"
+            Margin="50,380,984,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*" />
+                <ColumnDefinition Width="50*" />
+            </Grid.ColumnDefinitions>
+            <AppBarButton
+                Grid.Column="0"
+                Width="120"
+                Margin="0,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Click="AppBarButton_Click"
+                Icon="Add" />
+            <AppBarButton
+                Grid.Column="1"
+                Width="120"
+                Margin="3,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Click="AppBarButton_Click_1"
+                Icon="Delete" />
+        </Grid>
+        <StackPanel Margin="360,195,542,195" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <TextBlock
+                Name="tBlock0"
+                Height="70"
+                Margin="0,10,70,0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                FontSize="25"
+                TextAlignment="Center" />
+            <TextBlock
+                Name="tBlock1"
+                Height="70"
+                Margin="0,10,70,0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                FontSize="25"
+                TextAlignment="Center" />
+            <TextBlock
+                Name="tBlock2"
+                Height="70"
+                Margin="0,10,70,0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                FontSize="25"
+                TextAlignment="Center" />
+            <TextBlock
+                Name="tBlock3"
+                Height="70"
+                Margin="0,10,70,0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                FontSize="25"
+                TextAlignment="Center" />
+
+        </StackPanel>
+        <StackPanel
+            Margin="696,195,0,28"
+            Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+            Tapped="StackPanel_Tapped">
+            <ListView Name="dishesList">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150" />
+                                <ColumnDefinition Width="600" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="{Binding Title}" />
+                            <TextBlock Grid.Column="1" Text="{Binding Products}" />
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Page>

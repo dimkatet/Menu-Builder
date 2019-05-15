@@ -1,0 +1,47 @@
+﻿<Page
+    x:Class="Menu_Builder.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:Menu_Builder"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+
+    <Grid>
+        <NavigationView
+            x:Name="NavView"
+            Width="1280"
+            Margin="0,0,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            ItemInvoked="NavView_ItemInvoked"
+            Loaded="NavView_Loaded"
+            PaneDisplayMode="Top">
+            <NavigationView.MenuItems>
+                <NavigationViewItem
+                    x:Uid="SeatchDishNavItem"
+                    Content="Поиск блюда"
+                    Tag="searchDish" />
+                <NavigationViewItem
+                    x:Uid="MenuBildingNavItem"
+                    Content="Составление меню"
+                    Tag="menuBuilding" />
+                <NavigationViewItem
+                    x:Uid="DishesListNavItem"
+                    Content="Список блюд"
+                    Tag="dishesList" />
+            </NavigationView.MenuItems>
+            <NavigationView.ContentTransitions>
+                <TransitionCollection />
+            </NavigationView.ContentTransitions>
+            <Frame x:Name="ContentFrame" Margin="24">
+                <Frame.ContentTransitions>
+                    <TransitionCollection>
+                        <NavigationThemeTransition />
+                    </TransitionCollection>
+                </Frame.ContentTransitions>
+            </Frame>
+        </NavigationView>
+    </Grid>
+</Page>
