@@ -8,13 +8,12 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     Loaded="BuildingPage_Loaded"
     mc:Ignorable="d">
-
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBlock
-            Margin="476,0,496,667"
+            Margin="528,10,702,943"
             FontSize="36"
             Text="Создание меню" />
-        <StackPanel Margin="50,195,920,195" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Margin="50,195,920,298" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
             <Button
                 Width="250"
                 Height="70"
@@ -44,31 +43,32 @@
                 Content="Десерт"
                 FontSize="25" />
         </StackPanel>
-        <Grid
-            Width="250"
-            Height="40"
-            Margin="50,380,984,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50*" />
-                <ColumnDefinition Width="50*" />
-            </Grid.ColumnDefinitions>
+        <StackPanel
+                 Orientation="Horizontal" Margin="50,515,783,247">
             <AppBarButton
-                Grid.Column="0"
-                Width="120"
+                Width="80"
+                Height="40"
                 Margin="0,0,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
                 Click="AppBarButton_Click"
                 Icon="Add" />
             <AppBarButton
-                Grid.Column="1"
-                Width="120"
-                Margin="3,0,0,0"
+                Width="80"
+                Height="40"
+                Margin="5,0,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
                 Click="AppBarButton_Click_1"
                 Icon="Delete" />
-        </Grid>
+            <AppBarButton
+                Width="80"
+                Height="40"
+                Margin="5,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Icon="Save" Click="AppBarButton_Click_2" />
+        </StackPanel>
         <StackPanel Margin="360,195,542,195" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
             <TextBlock
                 Name="tBlock0"

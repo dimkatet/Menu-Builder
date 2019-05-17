@@ -165,5 +165,19 @@ namespace Menu_Builder
                     break;
             }
         }
+
+        private async void AppBarButton_Click_2(object sender, RoutedEventArgs e)
+        {
+            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            Windows.Storage.StorageFile file = await storageFolder.CreateFileAsync("menu.txt", Windows.Storage.CreationCollisionOption.OpenIfExists);
+            await Windows.Storage.FileIO.WriteTextAsync(file, "Первое блюдо:\n");
+            await Windows.Storage.FileIO.AppendTextAsync(file, tBlock0.Text + "\n\n");
+            await Windows.Storage.FileIO.AppendTextAsync(file, "Второе блюдо:\n");
+            await Windows.Storage.FileIO.AppendTextAsync(file, tBlock1.Text + "\n\n");
+            await Windows.Storage.FileIO.AppendTextAsync(file, "Закуска:\n");
+            await Windows.Storage.FileIO.AppendTextAsync(file, tBlock2.Text + "\n\n");
+            await Windows.Storage.FileIO.AppendTextAsync(file, "Десерт:\n");
+            await Windows.Storage.FileIO.AppendTextAsync(file, tBlock3.Text);
+        }
     }
 }

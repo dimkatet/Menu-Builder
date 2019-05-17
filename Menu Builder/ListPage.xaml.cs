@@ -11,6 +11,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Popups;
 using Windows.UI.Xaml.Navigation;
 
 // Документацию по шаблону элемента "Пустая страница" см. по адресу https://go.microsoft.com/fwlink/?LinkId=234238
@@ -43,17 +44,45 @@ namespace Menu_Builder
         {
             dishesList.ItemsSource = null;
             dishesList.Items.Clear();
+            string sCategory = null;
+            switch(categoryBox.SelectedIndex)
+            {
+                case 0:
+                    sCategory = "Первое блюдо";
+                    break;
+                case 1:
+                    sCategory = "Второе блюдо";
+                    break;
+                case 2:
+                    sCategory = "Закуска";
+                    break;
+                case 3:
+                    sCategory = "Десерт";
+                    break;
+            }
             using (DishContext db = new DishContext())
             {
                 var dishes = db.Dishes.ToList();
                 foreach(Dish d in dishes)
                 {
                     string sKey = d.Products;
-                    if (sKey.IndexOf(productsBox.SelectedValue.ToString()) >= 0 && d.Category == categoryBox.SelectedItem.ToString())
+                    if (sKey.IndexOf(productsBox.SelectedValue.ToString()) >= 0 && d.Category == sCategory)
                     {
                         dishesList.Items.Add(d);
                     }
                 }
+            }
+        }
+
+        private async void AppBarButton_Click(object sender, RoutedEventArgs e)
+        {
+            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            Windows.Storage.StorageFile file = await storageFolder.CreateFileAsync("Products.txt", Windows.Storage.CreationCollisionOption.OpenIfExists);
+            var list = dishesList.Items.ToList();
+            await Windows.Storage.FileIO.WriteTextAsync(file, "");
+            foreach (Dish d in list)
+            {
+                await Windows.Storage.FileIO.AppendTextAsync(file, d.Title + "    " + d.Category + "    " + d.Products + "\n");
             }
         }
     }
