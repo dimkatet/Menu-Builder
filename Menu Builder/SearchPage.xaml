@@ -5,30 +5,28 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:Menu_Builder"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     Loaded="SearchPage_Loaded"
+    Background="{ThemeResource SystemControlChromeMediumAcrylicWindowMediumBrush}"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource SystemControlChromeMediumAcrylicWindowMediumBrush}">
         <TextBlock
-            Margin="497,0,483,661"
+            Margin="850,87,790,779"
             FontSize="36"
             Text="Поиск блюда" />
         <TextBox
             Name="searchPanel"
-            Grid.Column="1"
             Width="220"
-            Margin="386.805,71,0,0"
+            Margin="661,166,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             KeyDown="SearchPanel_KeyDown" />
+        <AppBarButton Height="40" Icon="Find" Margin="886,162,0,0" Click="AppBarButton_Click"></AppBarButton>
+        <AppBarButton Height="40" Icon="Clear" Margin="960,162,0,0" Click="AppBarButton_Click_1"></AppBarButton>
         <ComboBox
             Name="searchKey"
-            Grid.Column="1"
             Width="220"
-            Margin="693.805,71,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
+            Margin="1033,166,0,0"
             SelectedIndex="0">
             <ComboBoxItem
                 Width="100"
@@ -47,24 +45,19 @@
                 Content="Продукт" />
         </ComboBox>
         <TextBlock
-            Margin="65,117,0,575"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch"
+            Margin="350,240,1145,667"
             FontSize="18"
             Text="Блюдо" />
         <TextBlock
-            Margin="265,117,0,575"
+            Margin="520,240,1032,664"
             FontSize="18"
             Text="Категория" />
         <TextBlock
-            Margin="700,117,0,575"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch"
+            Margin="810,240,703,702"
             FontSize="18"
             Text="Продукты" />
-        <StackPanel Margin="42,146,42,0" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-            <TextBlock FontWeight="Bold" Text="{Binding ElementName=dishesList, Path=SelectedItem.Title}" />
-            <ListView Name="dishesList">
+        <StackPanel Margin="300,280,300,0" Background="{ThemeResource SystemControlChromeMediumAcrylicWindowMediumBrush}">
+            <ListView Height="806" Name="dishesList">
 
                 <ListView.ItemTemplate>
                     <DataTemplate>

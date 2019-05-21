@@ -82,5 +82,45 @@ namespace Menu_Builder
                     }
                 }
         }
+
+        private void AppBarButton_Click(object sender, RoutedEventArgs e)
+        {
+            using (DishContext db = new DishContext())
+            {
+                dishesList.ItemsSource = null;
+                dishesList.Items.Clear();
+                var dishes = db.Dishes.ToList();
+                Dish dish = new Dish();
+                foreach (Dish d in dishes)
+                {
+                    string sKey = null;
+                    switch (searchKey.SelectedIndex)
+                    {
+                        case 0:
+                            sKey = d.Title;
+                            break;
+                        case 1:
+                            sKey = d.Category;
+                            break;
+                        case 2:
+                            sKey = d.Products;
+                            break;
+                    }
+                    if (sKey != null)
+                        if (sKey.IndexOf(searchPanel.Text) >= 0)
+                        {
+                            dishesList.Items.Add(d);
+                        }
+                }
+            }
+        }
+
+        private void AppBarButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            using (DishContext db = new DishContext())
+            {
+                dishesList.ItemsSource = db.Dishes.ToList();
+            }
+        }
     }
 }

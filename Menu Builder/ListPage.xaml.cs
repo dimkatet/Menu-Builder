@@ -13,6 +13,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Navigation;
+using Windows.Storage.Pickers;
+using static System.Diagnostics.Process;
 
 // Документацию по шаблону элемента "Пустая страница" см. по адресу https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -34,7 +36,8 @@ namespace Menu_Builder
             {
                 foreach(Product p in db.Products)
                 {
-                    productsBox.Items.Add(p.Title);
+                    if(p.Amount > 0)
+                        productsBox.Items.Add(p.Title);
                 }
                 dishesList.ItemsSource = db.Dishes.ToList();
             }
@@ -84,6 +87,10 @@ namespace Menu_Builder
             {
                 await Windows.Storage.FileIO.AppendTextAsync(file, d.Title + "    " + d.Category + "    " + d.Products + "\n");
             }
+            /*FileOpenPicker openPicker = new FileOpenPicker();
+            openPicker.ViewMode = PickerViewMode.Thumbnail;
+            openPicker.SuggestedStartLocation = PickerLocationId.ComputerFolder;
+            System.Diagnostics.Process.Start(storageFolder.Path); */
         }
     }
 }

@@ -5,15 +5,17 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:Menu_Builder"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Background="{ThemeResource SystemControlChromeMediumAcrylicWindowMediumBrush}"
     Loaded="ListPage_Loaded"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource SystemControlChromeMediumAcrylicWindowMediumBrush}">
+        <TextBlock
+            Margin="851,87,789,791"
+            FontSize="36"
+            Text="Список блюд" />
         <Grid
-            Margin="0,125,0,538"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch">
+            Margin="300,166,300,719">
             <ComboBox
                 Name="categoryBox"
                 Width="200"
@@ -43,13 +45,23 @@
                 Height="40"
                 Margin="628,5,0,0"
                 Icon="Save"
-                Tapped="AppBarButton_Tapped" Click="AppBarButton_Click" />
+                Click="AppBarButton_Click" />
         </Grid>
+        <TextBlock
+            Margin="350,240,1145,667"
+            FontSize="18"
+            Text="Блюдо" />
+        <TextBlock
+            Margin="520,240,1032,664"
+            FontSize="18"
+            Text="Категория" />
+        <TextBlock
+            Margin="810,240,703,702"
+            FontSize="18"
+            Text="Продукты" />
         <ListView
             Name="dishesList"
-            Margin="30,182,28,0"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch">
+            Margin="300,280,300,10">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>

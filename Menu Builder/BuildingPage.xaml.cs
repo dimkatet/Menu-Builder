@@ -35,6 +35,14 @@ namespace Menu_Builder
         public BuildingPage()
         {
             this.InitializeComponent();
+            /*if (firstDish != null)
+                tBlock0.Text = firstDish;
+            if (secondDish != null)
+                tBlock1.Text = secondDish;
+            if (snack != null)
+                tBlock2.Text = snack;
+            if (desert != null)
+                tBlock3.Text = desert; */
         }
 
         public void BuildingPage_Loaded(object sender, RoutedEventArgs e)
@@ -56,6 +64,10 @@ namespace Menu_Builder
         {
             dishesList.Items.Clear();
             categories = CATEGORIES.FIRST_DISH;
+            button0.IsChecked = true;
+            button1.IsChecked = false;
+            button2.IsChecked = false;
+            button3.IsChecked = false;
             using (DishContext db = new DishContext())
             {
                 var dishes = db.Dishes.ToList();
@@ -73,6 +85,10 @@ namespace Menu_Builder
         {
             dishesList.Items.Clear();
             categories = CATEGORIES.SECOND_DISH;
+            button0.IsChecked = false;
+            button1.IsChecked = true;
+            button2.IsChecked = false;
+            button3.IsChecked = false;
             using (DishContext db = new DishContext())
             {
                 var dishes = db.Dishes.ToList();
@@ -90,6 +106,10 @@ namespace Menu_Builder
         {
             dishesList.Items.Clear();
             categories = CATEGORIES.SNACK;
+            button0.IsChecked = false;
+            button1.IsChecked = false;
+            button2.IsChecked = true;
+            button3.IsChecked = false;
             using (DishContext db = new DishContext())
             {
                 var dishes = db.Dishes.ToList();
@@ -107,6 +127,10 @@ namespace Menu_Builder
         {
             dishesList.Items.Clear();
             categories = CATEGORIES.DESSERT;
+            button0.IsChecked = false;
+            button1.IsChecked = false;
+            button2.IsChecked = false;
+            button3.IsChecked = true;
             using (DishContext db = new DishContext())
             {
                 var dishes = db.Dishes.ToList();
@@ -134,15 +158,19 @@ namespace Menu_Builder
             {
                 case CATEGORIES.FIRST_DISH:
                     tBlock0.Text = dish.Title;
+                    //firstDish = tBlock0.Text;
                     break;
                 case CATEGORIES.SECOND_DISH:
                     tBlock1.Text = dish.Title;
+                    //secondDish = tBlock1.Text;
                     break;
                 case CATEGORIES.SNACK:
                     tBlock2.Text = dish.Title;
+                    //snack = tBlock2.Text;
                     break;
                 case CATEGORIES.DESSERT:
                     tBlock3.Text = dish.Title;
+                    //desert = tBlock3.Text;
                     break;
             }
         }
@@ -177,7 +205,9 @@ namespace Menu_Builder
             await Windows.Storage.FileIO.AppendTextAsync(file, "Закуска:\n");
             await Windows.Storage.FileIO.AppendTextAsync(file, tBlock2.Text + "\n\n");
             await Windows.Storage.FileIO.AppendTextAsync(file, "Десерт:\n");
-            await Windows.Storage.FileIO.AppendTextAsync(file, tBlock3.Text);
+            await Windows.Storage.FileIO.AppendTextAsync(file, tBlock3.Text + "\n\n");
+            await Windows.Storage.FileIO.AppendTextAsync(file, "Количество человек:\n");
+            await Windows.Storage.FileIO.AppendTextAsync(file, slider.Value.ToString());
         }
     }
 }

@@ -5,37 +5,44 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:Menu_Builder"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Background="{ThemeResource SystemControlChromeMediumAcrylicWindowMediumBrush}"
     Loaded="BuildingPage_Loaded"
     mc:Ignorable="d">
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource SystemControlChromeMediumAcrylicWindowMediumBrush}">
         <TextBlock
-            Margin="528,10,702,943"
+            Margin="842,95,492,818"
             FontSize="36"
             Text="Создание меню" />
-        <StackPanel Margin="50,195,920,298" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-            <Button
+        <StackPanel Margin="855,213,668,352" Background="{ThemeResource SystemControlChromeMediumAcrylicWindowMediumBrush}">
+            <ToggleButton
+                FocusVisualPrimaryBrush="{ThemeResource SystemBaseHighColor}"
+                FocusVisualSecondaryBrush="{ThemeResource SystemAccentColor}"
+                
+                Name="button0"
                 Width="250"
                 Height="70"
                 Margin="0,10,0,0"
                 Click="Button_Click"
                 Content="Первое блюдо"
-                FontSize="25" />
-            <Button
+                FontSize="25" IsChecked="True" />
+            <ToggleButton
+                Name="button1"
                 Width="250"
                 Height="70"
                 Margin="0,10,0,0"
                 Click="Button_Click_1"
                 Content="Второе блюдо"
                 FontSize="25" />
-            <Button
+            <ToggleButton
+                Name="button2"
                 Width="250"
                 Height="70"
                 Margin="0,10,0,0"
                 Click="Button_Click_2"
                 Content="Закуска"
                 FontSize="25" />
-            <Button
+            <ToggleButton
+                Name="button3"
                 Width="250"
                 Height="70"
                 Margin="0,10,0,0"
@@ -44,7 +51,8 @@
                 FontSize="25" />
         </StackPanel>
         <StackPanel
-                 Orientation="Horizontal" Margin="50,515,783,247">
+               Background="{ThemeResource SystemControlChromeMediumAcrylicWindowMediumBrush}"
+                 Orientation="Horizontal" Margin="855,540,668,374">
             <AppBarButton
                 Width="80"
                 Height="40"
@@ -69,7 +77,7 @@
                 VerticalAlignment="Center"
                 Icon="Save" Click="AppBarButton_Click_2" />
         </StackPanel>
-        <StackPanel Margin="360,195,542,195" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Margin="1234,213,300,438" Background="{ThemeResource SystemControlChromeMediumAcrylicWindowMediumBrush}">
             <TextBlock
                 Name="tBlock0"
                 Height="70"
@@ -105,8 +113,8 @@
 
         </StackPanel>
         <StackPanel
-            Margin="696,195,0,28"
-            Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+            Margin="300,213,1070,10"
+            Background="{ThemeResource SystemControlChromeMediumAcrylicWindowMediumBrush}"
             Tapped="StackPanel_Tapped">
             <ListView Name="dishesList">
 
@@ -124,5 +132,8 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackPanel>
+        <TextBlock Text="Количество человек:" Margin="919,604,435,315"></TextBlock>
+        <Slider x:Name="slider" HorizontalAlignment="Left" Margin="855,642,0,0" VerticalAlignment="Top" Width="236" Maximum="200"/>
+
     </Grid>
 </Page>

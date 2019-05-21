@@ -28,7 +28,7 @@ namespace Menu_Builder
         public MainPage()
         {
             this.InitializeComponent();
-            using (DishContext db = new DishContext())
+            /*using (DishContext db = new DishContext())
             {
                 var size = db.Dishes.ToList().Count;
                 string str = null;
@@ -51,7 +51,7 @@ namespace Menu_Builder
                     }
                 }
                 Write();
-            }
+            } */
         }
 
         private void NavView_Loaded(object sender, RoutedEventArgs e)
